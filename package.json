@@ -1,0 +1,18 @@
+{
+  "name": "enoc-explicado",
+  "version": "1.0.0",
+  "description": "Area de Estudio Biblico del Libro de Enoc Completo",
+  "type": "module",
+  "scripts": {
+    "dev": "node ./sites-incriveis/scripts/servir.mjs --pasta . --porta 8080",
+    "start": "node ./sites-incriveis/scripts/servir.mjs --pasta . --porta 8080",
+    "serve": "node ./sites-incriveis/scripts/servir.mjs --pasta . --porta 8080"
+  },
+  "keywords": [
+    "enoc",
+    "biblia",
+    "estudio"
+  ],
+  "author": "",
+  "license": "ISC"
+}

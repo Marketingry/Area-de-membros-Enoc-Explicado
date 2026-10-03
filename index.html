@@ -1,0 +1,2585 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Área de Estudio · El Libro de Enoc Completo</title>
+  
+  <!-- Tipografía de Prestigio Awwwards -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Cinzel+Decorative:wght@700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Motor Sites Incríveis -->
+  <link rel="stylesheet" href="sites-incriveis.css">
+  
+  <style>
+    /* ==========================================================================
+       SISTEMA DE DESIGN AWWWARDS · ÁREA DE ESTUDIO ENOC
+       Público: 35-65+ Años (Legibilidad Máxima, Alto Contraste, Cero Fatiga)
+       ========================================================================== */
+    :root {
+      /* Tema Nocturno Sagrado (Default) */
+      --bg-base: #0B0E14;
+      --bg-surface: #121722;
+      --bg-surface-elevated: #18202F;
+      --bg-surface-card: #141B26;
+      --border-subtle: rgba(212, 175, 55, 0.16);
+      --border-strong: rgba(212, 175, 55, 0.40);
+      
+      --gold-primary: #D4AF37;
+      --gold-light: #F3E5AB;
+      --gold-dark: #997A15;
+      --gold-gradient: linear-gradient(135deg, #F3E5AB 0%, #D4AF37 50%, #AA820A 100%);
+      
+      --text-main: #EAE6DF;
+      --text-muted: #A3ABB8;
+      --text-dim: #707A8A;
+      --text-inverse: #0B0E14;
+      
+      --accent-badge: rgba(212, 175, 55, 0.12);
+      --accent-scripture: #192333;
+      --shadow-lux: 0 16px 40px -8px rgba(0, 0, 0, 0.6), 0 0 25px rgba(212, 175, 55, 0.05);
+      
+      /* Tipografía Dinámica */
+      --font-display: 'Cinzel', serif;
+      --font-display-dec: 'Cinzel Decorative', serif;
+      --font-reading: 'Lora', Georgia, serif;
+      --font-ui: 'Plus Jakarta Sans', system-ui, sans-serif;
+      
+      /* Escala de Lectura */
+      --reading-size: 19px;
+      --reading-line: 1.85;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+    }
+
+    /* Tema Papiro Antiguo (Para lectores amantes del libro físico) */
+    body.theme-papiro {
+      --bg-base: #F4EFE6;
+      --bg-surface: #ECE4D6;
+      --bg-surface-elevated: #E3D9C7;
+      --bg-surface-card: #FAF6EF;
+      --border-subtle: rgba(140, 105, 30, 0.20);
+      --border-strong: rgba(140, 105, 30, 0.50);
+      
+      --gold-primary: #8C691E;
+      --gold-light: #6E5214;
+      --gold-dark: #4A360A;
+      --gold-gradient: linear-gradient(135deg, #8C691E 0%, #6E5214 100%);
+      
+      --text-main: #241D15;
+      --text-muted: #574B3C;
+      --text-dim: #7C6D5B;
+      --text-inverse: #F4EFE6;
+      
+      --accent-badge: rgba(140, 105, 30, 0.12);
+      --accent-scripture: #EAE1D1;
+      --shadow-lux: 0 10px 30px -6px rgba(60, 45, 20, 0.12);
+    }
+
+    /* Tema Claro Clásico */
+    body.theme-claro {
+      --bg-base: #F8F9FA;
+      --bg-surface: #FFFFFF;
+      --bg-surface-elevated: #F1F3F5;
+      --bg-surface-card: #FFFFFF;
+      --border-subtle: rgba(0, 0, 0, 0.08);
+      --border-strong: rgba(184, 134, 11, 0.40);
+      
+      --gold-primary: #A67C1E;
+      --gold-light: #7A5B12;
+      --gold-dark: #523D0A;
+      --gold-gradient: linear-gradient(135deg, #B8860B 0%, #8B6508 100%);
+      
+      --text-main: #1A1F26;
+      --text-muted: #4B5563;
+      --text-dim: #6B7280;
+      --text-inverse: #FFFFFF;
+      
+      --accent-badge: rgba(166, 124, 30, 0.10);
+      --accent-scripture: #F3F4F6;
+      --shadow-lux: 0 10px 30px -6px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Reset & Base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      font-family: var(--font-ui);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      overflow-x: hidden;
+    }
+
+    /* Barra Superior de Control y Navegación */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(11, 14, 20, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 0.75rem 1.25rem;
+      transition: background-color 0.3s;
+    }
+    body.theme-papiro .topbar {
+      background: rgba(244, 239, 230, 0.92);
+    }
+    body.theme-claro .topbar {
+      background: rgba(248, 249, 250, 0.94);
+    }
+
+    .topbar-container {
+      max-width: 1320px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: inherit;
+    }
+    .brand-seal {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--gold-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0B0E14;
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1.2rem;
+      box-shadow: 0 0 16px rgba(212, 175, 55, 0.35);
+      flex-shrink: 0;
+    }
+    .brand-text h1 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--gold-light);
+      margin: 0;
+      line-height: 1.2;
+    }
+    .brand-text span {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    /* Barra de herramientas accesible */
+    .topbar-tools {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .tool-btn {
+      background: var(--bg-surface-elevated);
+      color: var(--text-main);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 0.45rem 0.85rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .tool-btn:hover {
+      border-color: var(--gold-primary);
+      color: var(--gold-light);
+      transform: translateY(-1px);
+    }
+    .tool-btn.active {
+      background: var(--gold-primary);
+      color: var(--text-inverse);
+      border-color: var(--gold-primary);
+    }
+    .tool-btn-icon {
+      font-size: 1.05rem;
+      line-height: 1;
+    }
+
+    /* Medidor de Progreso Superior */
+    .progress-pill {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+    .progress-bar-mini {
+      width: 70px;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    body.theme-papiro .progress-bar-mini, body.theme-claro .progress-bar-mini {
+      background: rgba(0, 0, 0, 0.1);
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: var(--gold-gradient);
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+
+    /* Contenedor Principal */
+    .main-wrap {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 4rem;
+      width: 100%;
+      flex: 1;
+    }
+
+    /* Hero Banner de Bienvenida */
+    .welcome-banner {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-bottom: 2rem;
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-lux);
+      background: #000;
+    }
+    .welcome-banner-img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      object-position: center 35%;
+      display: block;
+      opacity: 0.65;
+      filter: contrast(1.05) brightness(0.95);
+      transition: transform 0.6s ease;
+    }
+    .welcome-banner:hover .welcome-banner-img {
+      transform: scale(1.02);
+    }
+    .welcome-banner-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(11, 14, 20, 0.2) 0%, rgba(11, 14, 20, 0.95) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 2rem;
+    }
+    .welcome-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--accent-badge);
+      border: 1px solid var(--border-strong);
+      color: var(--gold-light);
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+      width: fit-content;
+    }
+    .welcome-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 0.5rem;
+      line-height: 1.25;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
+    }
+    .welcome-subtitle {
+      font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+      color: #E2E8F0;
+      max-width: 820px;
+      line-height: 1.5;
+      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.7);
+    }
+
+    /* Botones de acción rápida en bienvenida */
+    .welcome-actions {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1.2rem;
+      flex-wrap: wrap;
+    }
+    .btn-gold {
+      background: var(--gold-gradient);
+      color: #0B0E14;
+      font-weight: 700;
+      padding: 0.7rem 1.4rem;
+      border-radius: var(--radius-sm);
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 14px rgba(212, 175, 55, 0.35);
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+    }
+    .btn-outline {
+      background: rgba(18, 23, 34, 0.6);
+      backdrop-filter: blur(8px);
+      color: #FFFFFF;
+      font-weight: 600;
+      padding: 0.7rem 1.3rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+    .btn-outline:hover {
+      border-color: var(--gold-primary);
+      color: var(--gold-light);
+      background: rgba(18, 23, 34, 0.85);
+    }
+
+    /* Selector de los 5 Bloques */
+    .blocks-section {
+      margin-bottom: 2.5rem;
+    }
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 1.2rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      color: var(--gold-light);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .section-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+    }
+
+    .blocks-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1rem;
+    }
+
+    .block-card {
+      background: var(--bg-surface-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .block-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--gold-primary);
+      box-shadow: var(--shadow-lux);
+    }
+    .block-card.active {
+      border-color: var(--gold-primary);
+      box-shadow: 0 0 0 2px var(--gold-primary), var(--shadow-lux);
+      background: var(--bg-surface-elevated);
+    }
+    .block-thumb-wrap {
+      position: relative;
+      height: 130px;
+      overflow: hidden;
+      background: #000;
+    }
+    .block-thumb {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+      opacity: 0.85;
+    }
+    .block-card:hover .block-thumb {
+      transform: scale(1.05);
+      opacity: 1;
+    }
+    .block-badge-caps {
+      position: absolute;
+      bottom: 8px;
+      left: 8px;
+      background: rgba(11, 14, 20, 0.85);
+      border: 1px solid var(--border-subtle);
+      color: var(--gold-light);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+    .block-content {
+      padding: 1rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .block-tag {
+      font-size: 0.75rem;
+      color: var(--gold-primary);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.25rem;
+    }
+    .block-title {
+      font-family: var(--font-display);
+      font-size: 1.02rem;
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: 0.4rem;
+      color: var(--text-main);
+    }
+    .block-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+      margin-bottom: 0.75rem;
+      flex: 1;
+    }
+    .block-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 0.5rem;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 0.78rem;
+    }
+    .block-btn-explore {
+      color: var(--gold-light);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .canva-link-badge {
+      color: var(--text-dim);
+      font-size: 0.72rem;
+      text-decoration: none;
+    }
+    .canva-link-badge:hover {
+      color: var(--gold-primary);
+    }
+
+    /* =====================================================
+       ESPACIO DE LECTURA PRINCIPAL (SANTUARIO DE ESTUDIO)
+       ==================================================== */
+    .reader-workspace {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lux);
+      overflow: hidden;
+      margin-bottom: 3rem;
+    }
+
+    /* Barra de Navegación de Capítulo */
+    .reader-nav {
+      background: var(--bg-surface-card);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .chapter-step-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .btn-nav-cap {
+      background: var(--bg-surface-elevated);
+      color: var(--text-main);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 0.55rem 1rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s;
+    }
+    .btn-nav-cap:hover:not(:disabled) {
+      border-color: var(--gold-primary);
+      color: var(--gold-light);
+      background: var(--bg-base);
+    }
+    .btn-nav-cap:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+
+    /* Dropdown de Salto Rápido a cualquier capítulo */
+    .chapter-select-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .chapter-select {
+      background: var(--bg-base);
+      color: var(--gold-light);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.95rem;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-sm);
+      padding: 0.55rem 0.85rem;
+      cursor: pointer;
+      outline: none;
+    }
+    .chapter-select:focus {
+      border-color: var(--gold-primary);
+      box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.25);
+    }
+
+    /* Pestañas de Vista (Texto, Explicación, Paralelo) */
+    .view-tabs {
+      display: flex;
+      background: var(--bg-base);
+      padding: 0.25rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-subtle);
+    }
+    .view-tab {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 0.86rem;
+      font-weight: 600;
+      padding: 0.45rem 0.9rem;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.2s;
+    }
+    .view-tab:hover {
+      color: var(--text-main);
+    }
+    .view-tab.active {
+      background: var(--bg-surface-elevated);
+      color: var(--gold-light);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    }
+
+    /* Acciones de Capítulo (Marcar Leído, Escuchar, Imprimir) */
+    .chapter-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .btn-action-read {
+      background: var(--bg-surface-elevated);
+      color: var(--text-main);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 0.5rem 0.85rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.2s;
+    }
+    .btn-action-read:hover {
+      border-color: var(--gold-primary);
+    }
+    .btn-action-read.is-read {
+      background: rgba(34, 197, 94, 0.15);
+      border-color: #22c55e;
+      color: #4ade80;
+    }
+
+    /* Encabezado del Capítulo Actual */
+    .chapter-hero {
+      padding: 2.2rem 2.5rem 1.5rem;
+      border-bottom: 1px solid var(--border-subtle);
+      background: linear-gradient(180deg, var(--bg-surface-card) 0%, var(--bg-surface) 100%);
+    }
+    .chapter-badge-line {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .chap-badge-block {
+      background: var(--accent-badge);
+      color: var(--gold-light);
+      border: 1px solid var(--border-subtle);
+      padding: 0.25rem 0.65rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .chap-badge-num {
+      color: var(--text-dim);
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    .chapter-title-main {
+      font-family: var(--font-display);
+      font-size: clamp(1.7rem, 3.2vw, 2.3rem);
+      font-weight: 700;
+      color: var(--gold-light);
+      line-height: 1.25;
+      margin-bottom: 0.5rem;
+    }
+    .chapter-idea-summary {
+      font-family: var(--font-reading);
+      font-style: italic;
+      font-size: 1.12rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      max-width: 950px;
+    }
+
+    /* Área de Contenido */
+    .chapter-body {
+      padding: 2.2rem 2.5rem;
+    }
+
+    /* Grid Paralelo cuando está activo */
+    .reader-grid-parallel {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+    }
+    @media (max-width: 960px) {
+      .reader-grid-parallel {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    /* Formato de Versículos Bíblicos */
+    .verses-container {
+      font-family: var(--font-reading);
+      font-size: var(--reading-size);
+      line-height: var(--reading-line);
+      color: var(--text-main);
+    }
+    .verse-paragraph {
+      margin-bottom: 1.2rem;
+      text-align: justify;
+      position: relative;
+    }
+    .verse-number {
+      font-family: var(--font-ui);
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--gold-primary);
+      vertical-align: super;
+      margin-right: 0.25rem;
+      user-select: none;
+      background: var(--accent-badge);
+      padding: 0.1rem 0.35rem;
+      border-radius: 4px;
+    }
+
+    /* Formato de Estudio Bíblico */
+    .study-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+    }
+
+    .study-box {
+      background: var(--bg-surface-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 1.4rem 1.6rem;
+      position: relative;
+    }
+    .study-box-title {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      letter-spacing: 0.05em;
+    }
+    .study-box-title-icon {
+      font-size: 1.15rem;
+    }
+    .study-box-content {
+      font-size: 0.98rem;
+      line-height: 1.7;
+      color: var(--text-main);
+    }
+    .study-box-content p {
+      margin-bottom: 0.75rem;
+    }
+    .study-box-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Cajas Especiales de Escritura Canónica */
+    .study-box.box-scripture {
+      border-left: 4px solid var(--gold-primary);
+      background: var(--accent-scripture);
+    }
+    .study-box.box-scripture .study-box-title {
+      color: var(--gold-primary);
+    }
+
+    /* Caja de Anotaciones Personales Interactiva */
+    .notes-box textarea {
+      width: 100%;
+      min-height: 110px;
+      background: var(--bg-base);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 0.85rem;
+      color: var(--text-main);
+      font-family: var(--font-reading);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      resize: vertical;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .notes-box textarea:focus {
+      border-color: var(--gold-primary);
+    }
+    .notes-box-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 0.5rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    /* Reproductor de Audio Flotante */
+    .audio-player-bar {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%) translateY(120%);
+      z-index: 1000;
+      background: rgba(18, 23, 34, 0.96);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border-strong);
+      border-radius: 999px;
+      padding: 0.6rem 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .audio-player-bar.visible {
+      transform: translateX(-50%) translateY(0);
+    }
+    body.theme-papiro .audio-player-bar {
+      background: rgba(244, 239, 230, 0.96);
+    }
+    body.theme-claro .audio-player-bar {
+      background: rgba(255, 255, 255, 0.96);
+    }
+    .audio-info {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--gold-light);
+      white-space: nowrap;
+    }
+    .audio-ctrl-btn {
+      background: var(--gold-primary);
+      color: #0B0E14;
+      border: none;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      font-weight: bold;
+      transition: transform 0.2s;
+    }
+    .audio-ctrl-btn:hover {
+      transform: scale(1.08);
+    }
+    .audio-speed-btn {
+      background: var(--bg-surface-elevated);
+      color: var(--text-main);
+      border: 1px solid var(--border-subtle);
+      padding: 0.3rem 0.6rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* Modal de Búsqueda Universal */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(5, 7, 10, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem;
+    }
+    .modal-overlay.open {
+      display: flex;
+    }
+    .modal-dialog {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-lg);
+      width: 100%;
+      max-width: 720px;
+      max-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-lux);
+      overflow: hidden;
+      animation: modalIn 0.25s ease-out;
+    }
+    @keyframes modalIn {
+      from { opacity: 0; transform: scale(0.96) translateY(10px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    .modal-header {
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .modal-search-input {
+      width: 100%;
+      background: var(--bg-base);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 0.75rem 1rem;
+      font-size: 1.05rem;
+      color: var(--text-main);
+      outline: none;
+    }
+    .modal-search-input:focus {
+      border-color: var(--gold-primary);
+    }
+    .modal-close-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.5rem;
+      cursor: pointer;
+      line-height: 1;
+    }
+    .modal-results {
+      padding: 1.25rem 1.5rem;
+      overflow-y: auto;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+    .search-hit-item {
+      background: var(--bg-surface-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 0.9rem 1.1rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .search-hit-item:hover {
+      border-color: var(--gold-primary);
+      background: var(--bg-surface-elevated);
+      transform: translateX(4px);
+    }
+    .search-hit-title {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      margin-bottom: 0.3rem;
+    }
+    .search-hit-snippet {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .search-hit-snippet mark {
+      background: rgba(212, 175, 55, 0.35);
+      color: var(--gold-light);
+      padding: 0 0.2rem;
+      border-radius: 2px;
+    }
+
+    /* Modal Índice Completo de los 108 Capítulos */
+    .index-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(65px, 1fr));
+      gap: 0.5rem;
+      padding: 1rem 0;
+    }
+    .index-chip {
+      background: var(--bg-surface-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 6px;
+      padding: 0.6rem 0.3rem;
+      text-align: center;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-main);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .index-chip:hover {
+      border-color: var(--gold-primary);
+      color: var(--gold-light);
+      background: var(--bg-surface-elevated);
+    }
+    .index-chip.current {
+      background: var(--gold-primary);
+      color: #0B0E14;
+      border-color: var(--gold-primary);
+    }
+    .index-chip.read {
+      border-color: #22c55e;
+      position: relative;
+    }
+    .index-chip.read::after {
+      content: '✓';
+      position: absolute;
+      top: 2px;
+      right: 4px;
+      font-size: 0.65rem;
+      color: #22c55e;
+    }
+
+    /* Footer Awwwards */
+    .app-footer {
+      border-top: 1px solid var(--border-subtle);
+      background: var(--bg-surface);
+      padding: 3rem 1.25rem 2rem;
+      margin-top: auto;
+    }
+    .footer-inner {
+      max-width: 1320px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .footer-left p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      max-width: 600px;
+    }
+    .footer-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    /* Toast Notificaciones */
+    .toast-msg {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--bg-surface-elevated);
+      color: var(--gold-light);
+      border: 1px solid var(--gold-primary);
+      padding: 0.75rem 1.25rem;
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-lux);
+      font-size: 0.88rem;
+      font-weight: 600;
+      z-index: 3000;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: all 0.3s ease;
+      pointer-events: none;
+    }
+    .toast-msg.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    
+    /* ==========================================================================
+       ESTILOS PARA LOS 6 BONOS EXCLUSIVOS
+       ========================================================================== */
+    .bonos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 1.5rem;
+    }
+    .bono-card {
+      background: var(--bg-surface-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+    }
+    .bono-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--gold-primary);
+      box-shadow: var(--shadow-lux);
+    }
+    .bono-thumb-wrap {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      background: #000;
+      position: relative;
+    }
+    .bono-thumb {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .bono-card:hover .bono-thumb {
+      transform: scale(1.04);
+    }
+    .bono-card-body {
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .bono-card-tag {
+      font-size: 0.75rem;
+      color: var(--gold-primary);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.35rem;
+    }
+    .bono-card-title {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      color: var(--gold-light);
+      line-height: 1.35;
+      margin-bottom: 0.5rem;
+    }
+    .bono-card-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 1rem;
+      flex: 1;
+    }
+    .btn-open-bono {
+      background: var(--bg-surface-elevated);
+      color: var(--gold-light);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 0.6rem 1rem;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: all 0.2s ease;
+    }
+    .btn-open-bono:hover {
+      background: var(--gold-primary);
+      color: #0B0E14;
+      border-color: var(--gold-primary);
+    }
+
+    /* Tabla del Plan de 30 Días */
+    .plan-table-wrap {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+    }
+    .plan-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.92rem;
+    }
+    .plan-table th, .plan-table td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .plan-table th {
+      background: var(--bg-surface-elevated);
+      color: var(--gold-light);
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .plan-table tr:hover {
+      background: rgba(212, 175, 55, 0.04);
+    }
+    .plan-check {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--gold-primary);
+      cursor: pointer;
+    }
+
+    /* Citas y Mitos en Bono 2 */
+    .biblical-quote {
+      background: var(--accent-scripture);
+      border-left: 4px solid var(--gold-primary);
+      padding: 1rem 1.25rem;
+      margin: 1.25rem 0;
+      font-style: italic;
+      color: var(--text-main);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+    .myth-box {
+      background: var(--bg-surface-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      margin-top: 1rem;
+    }
+
+    /* Glosario Grid */
+    .glossary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+    .glossary-card {
+      background: var(--bg-surface-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 1rem;
+    }
+    .glossary-term {
+      font-family: var(--font-display);
+      font-weight: 700;
+      color: var(--gold-light);
+      display: block;
+      font-size: 1rem;
+    }
+    .glossary-type {
+      font-size: 0.72rem;
+      color: var(--gold-primary);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+
+    /* Arcángeles Cards */
+    .archangel-card {
+      background: var(--bg-surface-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    .archangel-card h4 {
+      font-family: var(--font-display);
+      color: var(--gold-light);
+      font-size: 1.1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    /* Padre Nuestro en Arameo */
+    .arameo-verse-box {
+      background: var(--bg-surface-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+    .arameo-original {
+      font-size: 1.5rem;
+      direction: rtl;
+      display: block;
+      color: var(--gold-light);
+      margin-bottom: 0.3rem;
+      letter-spacing: 0.05em;
+    }
+    .arameo-phonetic {
+      font-family: var(--font-reading);
+      font-style: italic;
+      color: var(--gold-primary);
+      font-size: 1.05rem;
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+    .arameo-spanish {
+      font-weight: 700;
+      font-size: 0.98rem;
+      display: block;
+      margin-bottom: 0.6rem;
+      color: var(--text-main);
+    }
+    .arameo-notes {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 0.5rem;
+      line-height: 1.6;
+    }
+
+    /* Cuaderno Imprimible */
+    .print-notebook-sheet {
+      background: #FFFFFF;
+      color: #1A1F26 !important;
+      padding: 2rem;
+      border: 2px dashed #999;
+      border-radius: var(--radius-sm);
+      margin: 1.5rem 0;
+      font-family: var(--font-reading);
+    }
+    .notebook-header-line {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 2px solid #333;
+      padding-bottom: 0.8rem;
+      margin-bottom: 1.25rem;
+      font-size: 0.95rem;
+    }
+    .notebook-section {
+      margin-bottom: 1.25rem;
+    }
+    .notebook-sec-title {
+      font-weight: 700;
+      font-size: 0.92rem;
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #111;
+    }
+    .notebook-lines .line {
+      border-bottom: 1px solid #CCC;
+      height: 28px;
+    }
+    .notebook-footer-quote {
+      text-align: center;
+      margin-top: 1.5rem;
+      padding-top: 0.8rem;
+      border-top: 1px solid #DDD;
+      font-size: 0.88rem;
+      color: #555;
+    }
+
+    /* Optimización de Impresión */
+    @media print {
+      .topbar, .welcome-banner, .blocks-section, .reader-nav, .audio-player-bar, .app-footer, .notes-box textarea {
+        display: none !important;
+      }
+      body {
+        background: #fff !important;
+        color: #000 !important;
+      }
+      .reader-workspace {
+        border: none !important;
+        box-shadow: none !important;
+      }
+      .chapter-title-main {
+        color: #000 !important;
+      }
+      .study-box {
+        border: 1px solid #ccc !important;
+        page-break-inside: avoid;
+      }
+    }
+
+    /* Responsividad Mobile Aconchegante */
+    @media (max-width: 768px) {
+      .chapter-hero {
+        padding: 1.5rem 1.25rem 1rem;
+      }
+      .chapter-body {
+        padding: 1.5rem 1.25rem;
+      }
+      .welcome-banner-img {
+        height: 220px;
+      }
+      .welcome-banner-overlay {
+        padding: 1.25rem;
+      }
+      .topbar-tools {
+        gap: 0.35rem;
+      }
+      .btn-nav-cap span.label-text {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =====================================================
+       BARRA SUPERIOR (NAVEGACIÓN Y HERRAMIENTAS ACCESIBLES)
+       ===================================================== -->
+  <header class="topbar">
+    <div class="topbar-container">
+      <a href="index.html" class="brand" title="Volver al Portal">
+        <div class="brand-seal">E</div>
+        <div class="brand-text">
+          <h1>ENOC EXPLICADO</h1>
+          <span>Área de Estudio Bíblico</span>
+        </div>
+      </a>
+
+      <!-- Herramientas de Accesibilidad para público 35-65+ -->
+      <div class="topbar-tools">
+        <!-- Selector de Tamaño de Letra -->
+        <button class="tool-btn" id="btnFontDec" title="Disminuir tamaño de letra">
+          <span class="tool-btn-icon">A−</span>
+        </button>
+        <button class="tool-btn" id="btnFontInc" title="Aumentar tamaño de letra">
+          <span class="tool-btn-icon">A+</span>
+        </button>
+
+        <!-- Selector de Tema (Noche / Papiro / Día) -->
+        <button class="tool-btn" id="btnThemeToggle" title="Cambiar tema de lectura">
+          <span class="tool-btn-icon" id="themeIcon">🌙</span>
+          <span id="themeLabel">Noche</span>
+        </button>
+
+        <!-- Buscador -->
+        <button class="tool-btn" id="btnOpenSearch" title="Buscar versículo o tema">
+          <span class="tool-btn-icon">🔍</span>
+          <span>Buscar</span>
+        </button>
+
+        
+        <!-- Botón de Bonos Exclusivos -->
+        <button class="tool-btn" id="btnOpenBonos" onclick="scrollToBonos()" title="Ver los 6 Bonos Exclusivos" style="border-color:var(--gold-primary);color:var(--gold-light)">
+          <span class="tool-btn-icon">🎁</span>
+          <span>Mis Bonos</span>
+        </button>
+
+        <!-- Índice Rápido -->
+        <button class="tool-btn" id="btnOpenIndex" title="Índice de los 108 Capítulos">
+          <span class="tool-btn-icon">📚</span>
+          <span>Índice</span>
+        </button>
+
+        <!-- Progreso del Lector -->
+        <div class="progress-pill" title="Progreso de lectura completado">
+          <div class="progress-bar-mini">
+            <div class="progress-bar-fill" id="topProgressFill"></div>
+          </div>
+          <span id="topProgressText">0/108</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- =====================================================
+       CONTENIDO PRINCIPAL
+       ===================================================== -->
+  <main class="main-wrap">
+
+    <!-- HERO / BANNER DE BIENVENIDA -->
+    <section class="welcome-banner" data-fx="surgir">
+      <img src="assets/hero_enoch.jpg" alt="Enoc caminando en el paraíso celestial" class="welcome-banner-img">
+      <div class="welcome-banner-overlay">
+        <div class="welcome-tag">Santuario Digital de Estudio</div>
+        <h2 class="welcome-title">Bienvenido a tu Estudio Integral del Libro de Enoc</h2>
+        <p class="welcome-subtitle">
+          Los 108 capítulos traducidos fielmente del texto antiguo, explicados versículo a versículo para el lector cristiano de hoy con respeto, claridad bíblica y sin doctrinas extrañas.
+        </p>
+        <div class="welcome-actions">
+          <button class="btn-gold" id="btnResumeReading">
+            <span>▶ Continuar Lectura</span>
+          </button>
+          <a href="#bloquesSection" class="btn-outline">
+            <span>Explorar los 5 Bloques</span>
+          </a>
+          <button class="btn-outline" onclick="openSearchModal()">
+            <span>Buscar Pasaje o Nombre</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOS 5 BLOQUES TEMÁTICOS -->
+    <section class="blocks-section" id="bloquesSection">
+      <div class="section-header">
+        <div>
+          <h3 class="section-title">🏛️ Las 5 Secciones del Libro de Enoc</h3>
+          <p class="section-desc">Selecciona un bloque para explorar sus capítulos correspondientes.</p>
+        </div>
+      </div>
+
+      <div class="blocks-grid" id="blocksGrid">
+        <!-- Renderizado dinámicamente vía JS -->
+      </div>
+    </section>
+
+    
+    <!-- =====================================================
+         SECCIÓN DE BONOS EXCLUSIVOS
+         ===================================================== -->
+    <section class="bonos-section" id="bonosSection" style="margin-bottom:3rem">
+      <div class="section-header">
+        <div>
+          <div class="welcome-tag" style="margin-bottom:0.4rem">Regalos y Recursos Especiales</div>
+          <h3 class="section-title">🎁 Tus 6 Bonos Exclusivos de Estudio</h3>
+          <p class="section-desc">Materiales complementarios diseñados para profundizar, meditar y orar con tranquilidad.</p>
+        </div>
+      </div>
+
+      <div class="bonos-grid" id="bonosGrid">
+        <!-- Renderizado dinámicamente por JS desde BONOS_DATA -->
+      </div>
+    </section>
+
+    <!-- =====================================================
+         EL SANTUARIO DE ESTUDIO (LECTOR Y EXPLICACIÓN)
+         ===================================================== -->
+    <section class="reader-workspace" id="readerSection">
+      
+      <!-- Barra Superior del Lector -->
+      <div class="reader-nav">
+        <!-- Controles de Anterior / Siguiente -->
+        <div class="chapter-step-controls">
+          <button class="btn-nav-cap" id="btnPrevCap" title="Capítulo Anterior">
+            <span>←</span>
+            <span class="label-text">Anterior</span>
+          </button>
+          
+          <div class="chapter-select-wrap">
+            <select class="chapter-select" id="chapterSelector" aria-label="Seleccionar capítulo">
+              <!-- Opciones generadas por JS de 1 a 108 -->
+            </select>
+          </div>
+
+          <button class="btn-nav-cap" id="btnNextCap" title="Capítulo Siguiente">
+            <span class="label-text">Siguiente</span>
+            <span>→</span>
+          </button>
+        </div>
+
+        <!-- Pestañas de Vista -->
+        <div class="view-tabs" role="tablist">
+          <button class="view-tab" id="tabVerses" onclick="switchView('verses')">
+            <span>📖</span> <span>Texto</span>
+          </button>
+          <button class="view-tab active" id="tabStudy" onclick="switchView('study')">
+            <span>📜</span> <span>Explicación</span>
+          </button>
+          <button class="view-tab" id="tabParallel" onclick="switchView('parallel')">
+            <span>⚖️</span> <span>Paralelo</span>
+          </button>
+        </div>
+
+        <!-- Acciones Rápidas del Capítulo -->
+        <div class="chapter-actions">
+          <button class="btn-action-read" id="btnToggleRead" onclick="toggleCurrentChapterRead()">
+            <span id="readIcon">○</span>
+            <span id="readLabel">Marcar como leído</span>
+          </button>
+          <button class="btn-action-read" id="btnAudioToggle" onclick="toggleAudioNarration()" title="Escuchar este capítulo en audio">
+            <span>🎧</span>
+            <span>Escuchar</span>
+          </button>
+          <button class="btn-action-read" onclick="window.print()" title="Imprimir o guardar en PDF">
+            <span>🖨️</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Encabezado del Capítulo Actual -->
+      <div class="chapter-hero">
+        <div class="chapter-badge-line">
+          <span class="chap-badge-block" id="currentBlockBadge">Bloque 1 · Los Vigilantes</span>
+          <span class="chap-badge-num" id="currentCapSubtitle">Texto Traducido de R.H. Charles (1917)</span>
+        </div>
+        <h2 class="chapter-title-main" id="currentCapTitle">Capítulo 1 — La venida del Santo</h2>
+        <div class="chapter-idea-summary" id="currentIdeaSummary">
+          "Enoc anuncia que Dios vendrá a juzgar a los malvados y a proteger a los justos..."
+        </div>
+      </div>
+
+      <!-- Cuerpo del Lector (Texto y/o Estudio) -->
+      <div class="chapter-body" id="chapterBodyContainer">
+        <!-- Renderizado dinámicamente según la pestaña activa -->
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- =====================================================
+       BARRA DE AUDIO FLOTANTE
+       ===================================================== -->
+  <div class="audio-player-bar" id="audioPlayerBar">
+    <button class="audio-ctrl-btn" id="audioPlayPauseBtn" onclick="pauseOrResumeAudio()">⏸</button>
+    <div class="audio-info">
+      <span id="audioStatusText">Leyendo Capítulo 1...</span>
+    </div>
+    <button class="audio-speed-btn" id="audioSpeedBtn" onclick="cycleAudioSpeed()">1.0x</button>
+    <button class="tool-btn" style="padding:0.3rem 0.6rem" onclick="stopAudioNarration()">✕</button>
+  </div>
+
+  
+  <!-- =====================================================
+       MODAL DE LECTURA DE BONO
+       ===================================================== -->
+  <div class="modal-overlay" id="bonoModal" onclick="handleModalOverlayClick(event, 'bonoModal')">
+    <div class="modal-dialog" style="max-width:850px;max-height:90vh">
+      <div class="modal-header">
+        <div>
+          <span id="bonoModalTag" style="font-size:0.75rem;color:var(--gold-primary);font-weight:700;text-transform:uppercase;letter-spacing:0.08em">Bono Exclusivo</span>
+          <h3 id="bonoModalTitle" style="font-family:var(--font-display);color:var(--gold-light);font-size:1.25rem;margin-top:0.2rem">Título del Bono</h3>
+        </div>
+        <div style="display:flex;align-items:center;gap:0.5rem">
+          <button class="tool-btn" onclick="printBonoModal()" title="Imprimir este bono">🖨️ Imprimir</button>
+          <button class="tool-btn" id="btnAudioBono" onclick="toggleBonoAudio()" title="Escuchar en audio">🎧 Escuchar</button>
+          <button class="modal-close-btn" onclick="closeBonoModal()">✕</button>
+        </div>
+      </div>
+      <div class="modal-results" id="bonoModalBody" style="padding:1.75rem 2rem;font-family:var(--font-reading);font-size:var(--reading-size);line-height:var(--reading-line)">
+        <!-- Contenido inyectado dinámicamente -->
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================
+       MODAL DE BÚSQUEDA UNIVERSAL
+       ===================================================== -->
+  <div class="modal-overlay" id="searchModal" onclick="handleModalOverlayClick(event, 'searchModal')">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <input type="text" class="modal-search-input" id="searchQueryInput" placeholder="Escribe una palabra, tema o nombre (ej: Vigilantes, Uriel, Trono, Hermón)..." autocomplete="off">
+        <button class="modal-close-btn" onclick="closeSearchModal()">✕</button>
+      </div>
+      <div class="modal-results" id="searchResultsList">
+        <p style="color:var(--text-muted);text-align:center;padding:2rem;">Escribe arriba para buscar en los 108 capítulos y en sus estudios bíblicos.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================
+       MODAL DE ÍNDICE DE CAPÍTULOS
+       ===================================================== -->
+  <div class="modal-overlay" id="indexModal" onclick="handleModalOverlayClick(event, 'indexModal')">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 style="font-family:var(--font-display);color:var(--gold-light)">📚 Índice de los 108 Capítulos</h3>
+        <button class="modal-close-btn" onclick="closeIndexModal()">✕</button>
+      </div>
+      <div class="modal-results" style="padding:1.5rem">
+        <div id="indexModalBlocksContainer"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICACIÓN -->
+  <div class="toast-msg" id="toastMsg">Notificación</div>
+
+  <!-- =====================================================
+       RODAPÉ INFORMATIVO Y PASTORAL
+       ===================================================== -->
+  <footer class="app-footer">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <h4 style="font-family:var(--font-display);color:var(--gold-light);margin-bottom:0.4rem">Enoc Explicado · Biblioteca de Estudio</h4>
+        <p>
+          Este material tiene propósitos exclusivamente de estudio histórico y bíblico complementario. No constituye doctrina ni sustituye la Santa Escritura canónica. Conforme a las recomendaciones del apóstol Judas (Judas 1:14-15), leemos este texto histórico con la Biblia al lado.
+        </p>
+      </div>
+      <div class="footer-right">
+        <a href="index.html" class="tool-btn">Volver a la Portada</a>
+        <button class="tool-btn" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑ Inicio</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =====================================================
+       CARGA DE DATOS Y LÓGICA DE APLICACIÓN
+       ===================================================== -->
+  <script src="assets/enoc_data.js"></script>
+  <script src="assets/bonos_data.js"></script>
+  <script src="sites-incriveis.js" defer></script>
+  <script>
+    /* =====================================================
+       ESTADO GLOBAL DE LA APLICACIÓN
+       ===================================================== */
+    const STATE = {
+      currentCapNum: 1,
+      currentView: 'study', // 'verses', 'study', 'parallel'
+      fontSize: 19,
+      theme: 'noite', // 'noite', 'papiro', 'claro'
+      readChapters: new Set(),
+      speechUtterance: null,
+      isSpeaking: false,
+      speechRate: 1.0,
+      notes: {}
+    };
+
+    
+    /* =====================================================
+       LÓGICA DE LOS 6 BONOS EXCLUSIVOS
+       ===================================================== */
+    let currentOpenBonoId = null;
+
+    function renderBonosCards() {
+      const container = document.getElementById('bonosGrid');
+      if (!container || !window.BONOS_DATA) return;
+
+      container.innerHTML = window.BONOS_DATA.map(b => `
+        <div class="bono-card" data-fx="surgir">
+          <div class="bono-thumb-wrap">
+            <img src="${b.image}" alt="${b.title}" class="bono-thumb" loading="lazy">
+          </div>
+          <div class="bono-card-body">
+            <span class="bono-card-tag">${b.tag}</span>
+            <h4 class="bono-card-title">${b.title}</h4>
+            <p class="bono-card-desc">${b.desc}</p>
+            <button class="btn-open-bono" onclick="openBonoModal(${b.id})">
+              <span>Abrir Material Completo →</span>
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function openBonoModal(id) {
+      if (!window.BONOS_DATA) return;
+      const b = window.BONOS_DATA.find(x => x.id === id);
+      if (!b) return;
+
+      currentOpenBonoId = id;
+      document.getElementById('bonoModalTag').textContent = b.tag;
+      document.getElementById('bonoModalTitle').textContent = b.title;
+      document.getElementById('bonoModalBody').innerHTML = b.content_html;
+      
+      // Restaurar estado de los checkboxes del plan de 30 días si es el bono 1
+      if (id === 1) {
+        restorePlanDaysState();
+      }
+
+      document.getElementById('bonoModal')?.classList.add('open');
+    }
+
+    function closeBonoModal() {
+      stopAudioNarration();
+      document.getElementById('bonoModal')?.classList.remove('open');
+      currentOpenBonoId = null;
+    }
+
+    function printBonoModal() {
+      window.print();
+    }
+
+    function togglePlanDay(dayNum, isChecked) {
+      try {
+        let planState = JSON.parse(localStorage.getItem('enoc_plan_30_days') || '{}');
+        planState[dayNum] = isChecked;
+        localStorage.setItem('enoc_plan_30_days', JSON.stringify(planState));
+        showToast(isChecked ? `Día ${dayNum} marcado como completado` : `Día ${dayNum} desmarcado`);
+      } catch (e) {
+        console.warn(e);
+      }
+    }
+
+    function restorePlanDaysState() {
+      try {
+        let planState = JSON.parse(localStorage.getItem('enoc_plan_30_days') || '{}');
+        document.querySelectorAll('.plan-check').forEach(input => {
+          const d = input.dataset.day;
+          if (planState[d]) input.checked = true;
+        });
+      } catch (e) {
+        console.warn(e);
+      }
+    }
+
+    function toggleBonoAudio() {
+      if (STATE.isSpeaking) {
+        stopAudioNarration();
+      } else {
+        startBonoAudioNarration();
+      }
+    }
+
+    function startBonoAudioNarration() {
+      if (!('speechSynthesis' in window) || !currentOpenBonoId) {
+        showToast('Narración no disponible.');
+        return;
+      }
+      const b = window.BONOS_DATA.find(x => x.id === currentOpenBonoId);
+      if (!b) return;
+
+      // Extraer texto limpio del modal
+      const bodyEl = document.getElementById('bonoModalBody');
+      const textToRead = `${b.title}. ${b.subtitle}. ` + (bodyEl?.innerText || '');
+
+      STATE.speechUtterance = new SpeechSynthesisUtterance(textToRead.substring(0, 3000));
+      STATE.speechUtterance.lang = 'es-LA';
+      STATE.speechUtterance.rate = STATE.speechRate;
+
+      const voices = window.speechSynthesis.getVoices();
+      const spanishVoice = voices.find(v => v.lang.startsWith('es'));
+      if (spanishVoice) STATE.speechUtterance.voice = spanishVoice;
+
+      STATE.speechUtterance.onstart = () => {
+        STATE.isSpeaking = true;
+        document.getElementById('audioPlayerBar')?.classList.add('visible');
+        document.getElementById('audioStatusText').textContent = `Leyendo: ${b.title}...`;
+      };
+      STATE.speechUtterance.onend = () => stopAudioNarration();
+      STATE.speechUtterance.onerror = () => stopAudioNarration();
+
+      window.speechSynthesis.speak(STATE.speechUtterance);
+    }
+
+    function scrollToBonos() {
+      document.getElementById('bonosSection')?.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Inicialización al cargar la ventana
+    window.addEventListener('DOMContentLoaded', () => {
+      renderBonosCards();
+      loadPreferences();
+      buildBlockCards();
+      populateChapterSelector();
+      renderChapter(STATE.currentCapNum);
+      updateProgressDisplay();
+      setupEventListeners();
+    });
+
+    /* =====================================================
+       PERSISTENCIA Y PREFERENCIAS (LocalStorage)
+       ===================================================== */
+    function loadPreferences() {
+      try {
+        const savedTheme = localStorage.getItem('enoc_theme');
+        if (savedTheme) applyTheme(savedTheme);
+
+        const savedFont = localStorage.getItem('enoc_font_size');
+        if (savedFont) applyFontSize(parseInt(savedFont));
+
+        const savedReads = localStorage.getItem('enoc_read_chapters');
+        if (savedReads) {
+          STATE.readChapters = new Set(JSON.parse(savedReads));
+        }
+
+        const savedNotes = localStorage.getItem('enoc_user_notes');
+        if (savedNotes) {
+          STATE.notes = JSON.parse(savedNotes);
+        }
+
+        const lastCap = localStorage.getItem('enoc_last_chapter');
+        if (lastCap) {
+          const num = parseInt(lastCap);
+          if (num >= 1 && num <= 108) STATE.currentCapNum = num;
+        }
+      } catch (e) {
+        console.warn('LocalStorage error:', e);
+      }
+    }
+
+    function savePreferences() {
+      try {
+        localStorage.setItem('enoc_theme', STATE.theme);
+        localStorage.setItem('enoc_font_size', STATE.fontSize);
+        localStorage.setItem('enoc_read_chapters', JSON.stringify([...STATE.readChapters]));
+        localStorage.setItem('enoc_user_notes', JSON.stringify(STATE.notes));
+        localStorage.setItem('enoc_last_chapter', STATE.currentCapNum);
+      } catch (e) {
+        console.warn('LocalStorage save error:', e);
+      }
+    }
+
+    /* =====================================================
+       TEMA Y ACCESIBILIDAD VISUAL
+       ===================================================== */
+    function applyTheme(newTheme) {
+      STATE.theme = newTheme;
+      document.body.classList.remove('theme-papiro', 'theme-claro');
+      const icon = document.getElementById('themeIcon');
+      const label = document.getElementById('themeLabel');
+
+      if (newTheme === 'papiro') {
+        document.body.classList.add('theme-papiro');
+        if (icon) icon.textContent = '📜';
+        if (label) label.textContent = 'Papiro';
+      } else if (newTheme === 'claro') {
+        document.body.classList.add('theme-claro');
+        if (icon) icon.textContent = '☀️';
+        if (label) label.textContent = 'Claro';
+      } else {
+        if (icon) icon.textContent = '🌙';
+        if (label) label.textContent = 'Noche';
+      }
+      savePreferences();
+    }
+
+    function toggleTheme() {
+      if (STATE.theme === 'noite') applyTheme('papiro');
+      else if (STATE.theme === 'papiro') applyTheme('claro');
+      else applyTheme('noite');
+    }
+
+    function applyFontSize(size) {
+      STATE.fontSize = Math.max(16, Math.min(28, size));
+      document.documentElement.style.setProperty('--reading-size', `${STATE.fontSize}px`);
+      savePreferences();
+    }
+
+    /* =====================================================
+       RENDERIZADO DE BLOQUES Y SELECTORES
+       ===================================================== */
+    function buildBlockCards() {
+      const container = document.getElementById('blocksGrid');
+      if (!container || !window.ENOC_DATA) return;
+
+      container.innerHTML = '';
+      window.ENOC_DATA.blocks.forEach(b => {
+        const card = document.createElement('div');
+        card.className = `block-card ${b.id === getBlockOfChapter(STATE.currentCapNum)?.id ? 'active' : ''}`;
+        card.id = `blockCard-${b.id}`;
+        card.onclick = () => selectBlock(b.id);
+
+        card.innerHTML = `
+          <div class="block-thumb-wrap">
+            <img src="${b.image}" alt="${b.title}" class="block-thumb" loading="lazy">
+            <span class="block-badge-caps">${b.subtitle}</span>
+          </div>
+          <div class="block-content">
+            <span class="block-tag">${b.name}</span>
+            <h4 class="block-title">${b.title}</h4>
+            <p class="block-desc">${b.theme}</p>
+            <div class="block-footer">
+              <span class="block-btn-explore">Estudiar Bloque →</span>
+              <a href="${b.canva_url}" target="_blank" rel="noopener noreferrer" class="canva-link-badge" onclick="event.stopPropagation()">
+                🎨 Arte Canva
+              </a>
+            </div>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function populateChapterSelector() {
+      const select = document.getElementById('chapterSelector');
+      if (!select || !window.ENOC_DATA) return;
+
+      select.innerHTML = '';
+      for (let i = 1; i <= 108; i++) {
+        const ch = getChapterByNum(i);
+        const opt = document.createElement('option');
+        opt.value = i;
+        opt.textContent = ch ? `Capítulo ${i} — ${ch.short_title}` : `Capítulo ${i}`;
+        select.appendChild(opt);
+      }
+
+      select.addEventListener('change', (e) => {
+        renderChapter(parseInt(e.target.value));
+      });
+    }
+
+    function getChapterByNum(num) {
+      if (!window.ENOC_DATA) return null;
+      for (const b of window.ENOC_DATA.blocks) {
+        for (const c of b.chapters) {
+          if (c.num === num) return c;
+        }
+      }
+      return null;
+    }
+
+    function getBlockOfChapter(num) {
+      if (!window.ENOC_DATA) return null;
+      for (const b of window.ENOC_DATA.blocks) {
+        for (const c of b.chapters) {
+          if (c.num === num) return b;
+        }
+      }
+      return window.ENOC_DATA.blocks[0];
+    }
+
+    function selectBlock(blockId) {
+      const b = window.ENOC_DATA.blocks.find(x => x.id === blockId);
+      if (b && b.chapters.length > 0) {
+        renderChapter(b.chapters[0].num);
+        document.getElementById('readerSection')?.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    /* =====================================================
+       RENDERIZADO DEL SANTUARIO DE ESTUDIO
+       ===================================================== */
+    function renderChapter(num) {
+      const ch = getChapterByNum(num);
+      if (!ch) return;
+
+      STATE.currentCapNum = num;
+      savePreferences();
+
+      // Actualizar Barra de Selección
+      const select = document.getElementById('chapterSelector');
+      if (select) select.value = num;
+
+      // Actualizar Estado de Botones Anterior/Siguiente
+      const btnPrev = document.getElementById('btnPrevCap');
+      const btnNext = document.getElementById('btnNextCap');
+      if (btnPrev) btnPrev.disabled = (num <= 1);
+      if (btnNext) btnNext.disabled = (num >= 108);
+
+      // Bloque actual
+      const block = getBlockOfChapter(num);
+      const blockBadge = document.getElementById('currentBlockBadge');
+      if (blockBadge) blockBadge.textContent = `${block.name} · ${block.title}`;
+
+      // Título y Resumen
+      const titleEl = document.getElementById('currentCapTitle');
+      if (titleEl) titleEl.textContent = ch.title;
+
+      const ideaEl = document.getElementById('currentIdeaSummary');
+      if (ideaEl) {
+        const idea = ch.study?.idea_central || "Lectura sagrada del Libro de Enoc.";
+        ideaEl.textContent = `"${idea}"`;
+      }
+
+      // Actualizar tarjeta activa de bloques
+      document.querySelectorAll('.block-card').forEach(c => c.classList.remove('active'));
+      const activeCard = document.getElementById(`blockCard-${block.id}`);
+      if (activeCard) activeCard.classList.add('active');
+
+      // Actualizar botón de Leído
+      updateReadButtonState(num);
+
+      // Renderizar cuerpo según pestaña activa
+      renderChapterBody(ch);
+    }
+
+    function renderChapterBody(ch) {
+      const container = document.getElementById('chapterBodyContainer');
+      if (!container) return;
+
+      if (STATE.currentView === 'verses') {
+        container.innerHTML = `
+          <div class="verses-container" data-fx="surgir">
+            ${formatVersesHTML(ch.verses_raw)}
+          </div>
+        `;
+      } else if (STATE.currentView === 'study') {
+        container.innerHTML = `
+          <div class="study-container" data-fx="surgir">
+            ${formatStudyHTML(ch)}
+          </div>
+        `;
+      } else if (STATE.currentView === 'parallel') {
+        container.innerHTML = `
+          <div class="reader-grid-parallel" data-fx="surgir">
+            <div>
+              <h3 style="font-family:var(--font-display);color:var(--gold-light);margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border-subtle)">
+                📖 Texto de los Versículos
+              </h3>
+              <div class="verses-container">
+                ${formatVersesHTML(ch.verses_raw)}
+              </div>
+            </div>
+            <div>
+              <h3 style="font-family:var(--font-display);color:var(--gold-light);margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border-subtle)">
+                📜 Explicación y Estudio
+              </h3>
+              <div class="study-container">
+                ${formatStudyHTML(ch)}
+              </div>
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    function formatVersesHTML(rawText) {
+      if (!rawText) return '<p class="text-muted">No se pudo cargar el texto del versículo.</p>';
+
+      const paragraphs = rawText.split('\n\n');
+      return paragraphs.map(p => {
+        if (!p.trim()) return '';
+        // Resaltar números de versículos: Ej. "1 Palabras..." o "2 Y él tomó..."
+        let formatted = p.trim().replace(/(?:^|(?<=\s))(\d+)(?=\s)/g, '<span class="verse-number">$1</span>');
+        return `<p class="verse-paragraph">${formatted}</p>`;
+      }).join('');
+    }
+
+    function formatStudyHTML(ch) {
+      const s = ch.study || {};
+      const currentNote = STATE.notes[ch.num] || '';
+
+      return `
+        <!-- QUÉ SIGNIFICA -->
+        <div class="study-box">
+          <h4 class="study-box-title">
+            <span class="study-box-title-icon">💡</span>
+            ¿Qué Significa según el Libro de Enoc?
+          </h4>
+          <div class="study-box-content">
+            <p>${s.que_significa || 'Sin contenido adicional.'}</p>
+          </div>
+        </div>
+
+        <!-- PERSONAJES Y NOMBRES -->
+        ${s.personajes ? `
+        <div class="study-box">
+          <h4 class="study-box-title">
+            <span class="study-box-title-icon">👤</span>
+            Personajes y Nombres Clave
+          </h4>
+          <div class="study-box-content">
+            ${formatBulletList(s.personajes)}
+          </div>
+        </div>
+        ` : ''}
+
+        <!-- CONTEXTO HISTÓRICO -->
+        ${s.contexto_historico ? `
+        <div class="study-box">
+          <h4 class="study-box-title">
+            <span class="study-box-title-icon">🏺</span>
+            Contexto Histórico y Textual
+          </h4>
+          <div class="study-box-content">
+            <p>${s.contexto_historico}</p>
+          </div>
+        </div>
+        ` : ''}
+
+        <!-- CURIOSIDADES -->
+        ${s.curiosidades ? `
+        <div class="study-box">
+          <h4 class="study-box-title">
+            <span class="study-box-title-icon">✨</span>
+            Curiosidades y Manuscritos Antiguos
+          </h4>
+          <div class="study-box-content">
+            ${formatBulletList(s.curiosidades)}
+          </div>
+        </div>
+        ` : ''}
+
+        <!-- DÓNDE APARECE EN TU BIBLIA -->
+        ${s.donde_aparece ? `
+        <div class="study-box box-scripture">
+          <h4 class="study-box-title">
+            <span class="study-box-title-icon">📖</span>
+            Dónde Aparece en tu Biblia (Reina-Valera 1909)
+          </h4>
+          <div class="study-box-content">
+            ${formatBulletList(s.donde_aparece)}
+          </div>
+        </div>
+        ` : ''}
+
+        <!-- PARA REFLEXIONAR -->
+        ${s.para_reflexionar ? `
+        <div class="study-box">
+          <h4 class="study-box-title">
+            <span class="study-box-title-icon">🕊️</span>
+            Para tu Reflexión y Oración
+          </h4>
+          <div class="study-box-content">
+            ${formatBulletList(s.para_reflexionar)}
+          </div>
+        </div>
+        ` : ''}
+
+        <!-- MIS ANOTACIONES PERSONALES (INTERACTIVAS) -->
+        <div class="study-box notes-box">
+          <h4 class="study-box-title">
+            <span class="study-box-title-icon">✍️</span>
+            Mis Anotaciones Personales
+          </h4>
+          <textarea 
+            id="userChapterNotes" 
+            placeholder="Escribe aquí tus pensamientos, oraciones, dudas o reflexiones sobre este capítulo... se guardarán automáticamente en tu dispositivo."
+            oninput="saveUserNotes(${ch.num}, this.value)"
+          >${currentNote}</textarea>
+          <div class="notes-box-footer">
+            <span id="notesStatusText">✓ Guardado en tu dispositivo</span>
+            <button class="tool-btn" style="padding:0.2rem 0.6rem;font-size:0.75rem" onclick="clearUserNotes(${ch.num})">Borrar notas</button>
+          </div>
+        </div>
+      `;
+    }
+
+    function formatBulletList(text) {
+      if (!text) return '';
+      const lines = text.split('\n').filter(l => l.trim().length > 0);
+      let items = lines.map(line => {
+        let clean = line.trim().replace(/^[-*•]\s*/, '');
+        return `<li>${clean}</li>`;
+      }).join('');
+      return `<ul style="padding-left:1.25rem;display:flex;flex-direction:column;gap:0.45rem">${items}</ul>`;
+    }
+
+    /* =====================================================
+       PESTAÑAS DE VISTA
+       ===================================================== */
+    function switchView(viewName) {
+      STATE.currentView = viewName;
+      document.querySelectorAll('.view-tab').forEach(t => t.classList.remove('active'));
+      if (viewName === 'verses') document.getElementById('tabVerses')?.classList.add('active');
+      else if (viewName === 'study') document.getElementById('tabStudy')?.classList.add('active');
+      else if (viewName === 'parallel') document.getElementById('tabParallel')?.classList.add('active');
+
+      const ch = getChapterByNum(STATE.currentCapNum);
+      if (ch) renderChapterBody(ch);
+    }
+
+    /* =====================================================
+       ANOTACIONES PERSONALES
+       ===================================================== */
+    let saveTimeout = null;
+    function saveUserNotes(capNum, text) {
+      STATE.notes[capNum] = text;
+      const status = document.getElementById('notesStatusText');
+      if (status) status.textContent = 'Guardando...';
+
+      clearTimeout(saveTimeout);
+      saveTimeout = setTimeout(() => {
+        savePreferences();
+        if (status) status.textContent = '✓ Guardado en tu dispositivo';
+      }, 500);
+    }
+
+    function clearUserNotes(capNum) {
+      if (confirm('¿Deseas borrar tus notas para este capítulo?')) {
+        delete STATE.notes[capNum];
+        const textarea = document.getElementById('userChapterNotes');
+        if (textarea) textarea.value = '';
+        savePreferences();
+        showToast('Notas borradas.');
+      }
+    }
+
+    /* =====================================================
+       CONTROL DE LECTURA (MARCAR LEÍDO Y PROGRESO)
+       ===================================================== */
+    function toggleCurrentChapterRead() {
+      const num = STATE.currentCapNum;
+      if (STATE.readChapters.has(num)) {
+        STATE.readChapters.delete(num);
+        showToast(`Capítulo ${num} marcado como pendiente`);
+      } else {
+        STATE.readChapters.add(num);
+        showToast(`¡Capítulo ${num} marcado como leído! 🎉`);
+      }
+      savePreferences();
+      updateReadButtonState(num);
+      updateProgressDisplay();
+    }
+
+    function updateReadButtonState(num) {
+      const btn = document.getElementById('btnToggleRead');
+      const icon = document.getElementById('readIcon');
+      const label = document.getElementById('readLabel');
+      if (!btn) return;
+
+      const isRead = STATE.readChapters.has(num);
+      btn.classList.toggle('is-read', isRead);
+      if (icon) icon.textContent = isRead ? '✓' : '○';
+      if (label) label.textContent = isRead ? 'Leído' : 'Marcar como leído';
+    }
+
+    function updateProgressDisplay() {
+      const count = STATE.readChapters.size;
+      const pct = Math.round((count / 108) * 100);
+
+      const fill = document.getElementById('topProgressFill');
+      const text = document.getElementById('topProgressText');
+      if (fill) fill.style.width = `${pct}%`;
+      if (text) text.textContent = `${count}/108 (${pct}%)`;
+    }
+
+    /* =====================================================
+       NARRACIÓN DE AUDIO (Web Speech API)
+       ===================================================== */
+    function toggleAudioNarration() {
+      if (STATE.isSpeaking) {
+        stopAudioNarration();
+      } else {
+        startAudioNarration();
+      }
+    }
+
+    function startAudioNarration() {
+      if (!('speechSynthesis' in window)) {
+        showToast('Tu navegador no soporta síntesis de voz.');
+        return;
+      }
+
+      window.speechSynthesis.cancel();
+      const ch = getChapterByNum(STATE.currentCapNum);
+      if (!ch) return;
+
+      // Compilar texto para lectura fluida
+      let speechText = `${ch.title}. ${ch.study?.idea_central || ''}. Texto de los versículos: `;
+      if (ch.verses_raw) {
+        // Limpiar marcas para habla natural
+        speechText += ch.verses_raw.replace(/(\d+)\s/g, 'Versículo $1. ');
+      }
+
+      STATE.speechUtterance = new SpeechSynthesisUtterance(speechText);
+      STATE.speechUtterance.lang = 'es-LA'; // Español neutro
+      STATE.speechUtterance.rate = STATE.speechRate;
+
+      // Buscar voz en español
+      const voices = window.speechSynthesis.getVoices();
+      const spanishVoice = voices.find(v => v.lang.startsWith('es'));
+      if (spanishVoice) STATE.speechUtterance.voice = spanishVoice;
+
+      STATE.speechUtterance.onstart = () => {
+        STATE.isSpeaking = true;
+        document.getElementById('audioPlayerBar')?.classList.add('visible');
+        document.getElementById('audioStatusText').textContent = `Reproduciendo Capítulo ${ch.num}...`;
+        document.getElementById('audioPlayPauseBtn').textContent = '⏸';
+      };
+
+      STATE.speechUtterance.onend = () => {
+        stopAudioNarration();
+      };
+
+      STATE.speechUtterance.onerror = () => {
+        stopAudioNarration();
+      };
+
+      window.speechSynthesis.speak(STATE.speechUtterance);
+    }
+
+    function pauseOrResumeAudio() {
+      if (window.speechSynthesis.paused) {
+        window.speechSynthesis.resume();
+        document.getElementById('audioPlayPauseBtn').textContent = '⏸';
+      } else {
+        window.speechSynthesis.pause();
+        document.getElementById('audioPlayPauseBtn').textContent = '▶';
+      }
+    }
+
+    function cycleAudioSpeed() {
+      const speeds = [0.8, 1.0, 1.2];
+      let idx = speeds.indexOf(STATE.speechRate);
+      idx = (idx + 1) % speeds.length;
+      STATE.speechRate = speeds[idx];
+      document.getElementById('audioSpeedBtn').textContent = `${STATE.speechRate}x`;
+      if (STATE.isSpeaking) {
+        // Reiniciar con la nueva velocidad
+        startAudioNarration();
+      }
+    }
+
+    function stopAudioNarration() {
+      window.speechSynthesis.cancel();
+      STATE.isSpeaking = false;
+      document.getElementById('audioPlayerBar')?.classList.remove('visible');
+    }
+
+    /* =====================================================
+       BÚSQUEDA UNIVERSAL INSTANTÁNEA
+       ===================================================== */
+    function openSearchModal() {
+      const modal = document.getElementById('searchModal');
+      modal?.classList.add('open');
+      const input = document.getElementById('searchQueryInput');
+      input?.focus();
+    }
+
+    function closeSearchModal() {
+      document.getElementById('searchModal')?.classList.remove('open');
+    }
+
+    function performSearch(query) {
+      const list = document.getElementById('searchResultsList');
+      if (!list || !window.ENOC_DATA) return;
+
+      const q = query.trim().toLowerCase();
+      if (q.length < 2) {
+        list.innerHTML = '<p style="color:var(--text-muted);text-align:center;padding:2rem;">Escribe al menos 2 letras para buscar...</p>';
+        return;
+      }
+
+      const results = [];
+      window.ENOC_DATA.blocks.forEach(b => {
+        b.chapters.forEach(c => {
+          let score = 0;
+          let matchSnippet = '';
+
+          // Búsqueda en título
+          if (c.title.toLowerCase().includes(q)) {
+            score += 10;
+            matchSnippet = c.title;
+          }
+          // Búsqueda en versículos
+          if (c.verses_raw && c.verses_raw.toLowerCase().includes(q)) {
+            score += 5;
+            const idx = c.verses_raw.toLowerCase().indexOf(q);
+            const start = Math.max(0, idx - 40);
+            const end = Math.min(c.verses_raw.length, idx + 80);
+            matchSnippet = '...' + c.verses_raw.substring(start, end) + '...';
+          }
+          // Búsqueda en estudio bíblico
+          if (c.study) {
+            const studyStr = Object.values(c.study).join(' ').toLowerCase();
+            if (studyStr.includes(q)) {
+              score += 3;
+              if (!matchSnippet) {
+                const idx = studyStr.indexOf(q);
+                const start = Math.max(0, idx - 40);
+                const end = Math.min(studyStr.length, idx + 80);
+                matchSnippet = '...' + studyStr.substring(start, end) + '...';
+              }
+            }
+          }
+
+          if (score > 0) {
+            results.push({ chapter: c, block: b, score, snippet: matchSnippet });
+          }
+        });
+      });
+
+      if (results.length === 0) {
+        list.innerHTML = `<p style="color:var(--text-muted);text-align:center;padding:2rem;">No se encontraron resultados para "<strong>${escapeHTML(query)}</strong>".</p>`;
+        return;
+      }
+
+      list.innerHTML = results.slice(0, 30).map(r => {
+        // Resaltar query en snippet
+        const regex = new RegExp(`(${escapeRegExp(query)})`, 'gi');
+        const highlighted = escapeHTML(r.snippet).replace(regex, '<mark>$1</mark>');
+
+        return `
+          <div class="search-hit-item" onclick="jumpFromSearch(${r.chapter.num})">
+            <div class="search-hit-title">${r.chapter.title} <span style="font-size:0.75rem;color:var(--text-dim)">(${r.block.name})</span></div>
+            <div class="search-hit-snippet">${highlighted}</div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function jumpFromSearch(num) {
+      closeSearchModal();
+      renderChapter(num);
+      document.getElementById('readerSection')?.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    /* =====================================================
+       MODAL DE ÍNDICE COMPLETO
+       ===================================================== */
+    function openIndexModal() {
+      const modal = document.getElementById('indexModal');
+      const container = document.getElementById('indexModalBlocksContainer');
+      if (!container || !window.ENOC_DATA) return;
+
+      container.innerHTML = window.ENOC_DATA.blocks.map(b => `
+        <div style="margin-bottom:1.5rem">
+          <h4 style="font-family:var(--font-display);color:var(--gold-light);font-size:0.98rem;margin-bottom:0.6rem">
+            ${b.name}: ${b.title} <span style="font-size:0.8rem;color:var(--text-dim)">(${b.subtitle})</span>
+          </h4>
+          <div class="index-grid">
+            ${b.chapters.map(c => `
+              <div 
+                class="index-chip ${c.num === STATE.currentCapNum ? 'current' : ''} ${STATE.readChapters.has(c.num) ? 'read' : ''}"
+                onclick="jumpFromIndex(${c.num})"
+                title="${c.title}"
+              >
+                ${c.num}
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `).join('');
+
+      modal?.classList.add('open');
+    }
+
+    function closeIndexModal() {
+      document.getElementById('indexModal')?.classList.remove('open');
+    }
+
+    function jumpFromIndex(num) {
+      closeIndexModal();
+      renderChapter(num);
+      document.getElementById('readerSection')?.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function handleModalOverlayClick(e, modalId) {
+      if (e.target.id === modalId) {
+        document.getElementById(modalId)?.classList.remove('open');
+      }
+    }
+
+    /* =====================================================
+       NOTIFICACIONES TOAST
+       ===================================================== */
+    let toastTimeout = null;
+    function showToast(msg) {
+      const toast = document.getElementById('toastMsg');
+      if (!toast) return;
+      toast.textContent = msg;
+      toast.classList.add('show');
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2500);
+    }
+
+    /* =====================================================
+       LISTENERS DE EVENTOS Y ATALHOS
+       ===================================================== */
+    function setupEventListeners() {
+      // Botón Reanudar Lectura
+      document.getElementById('btnResumeReading')?.addEventListener('click', () => {
+        document.getElementById('readerSection')?.scrollIntoView({ behavior: 'smooth' });
+      });
+
+      // Botones Anterior / Siguiente
+      document.getElementById('btnPrevCap')?.addEventListener('click', () => {
+        if (STATE.currentCapNum > 1) {
+          renderChapter(STATE.currentCapNum - 1);
+          document.getElementById('readerSection')?.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+      document.getElementById('btnNextCap')?.addEventListener('click', () => {
+        if (STATE.currentCapNum < 108) {
+          renderChapter(STATE.currentCapNum + 1);
+          document.getElementById('readerSection')?.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+
+      // Control de Fuentes
+      document.getElementById('btnFontDec')?.addEventListener('click', () => applyFontSize(STATE.fontSize - 2));
+      document.getElementById('btnFontInc')?.addEventListener('click', () => applyFontSize(STATE.fontSize + 2));
+
+      // Control de Tema
+      document.getElementById('btnThemeToggle')?.addEventListener('click', toggleTheme);
+
+      // Modales
+      document.getElementById('btnOpenSearch')?.addEventListener('click', openSearchModal);
+      document.getElementById('btnOpenIndex')?.addEventListener('click', openIndexModal);
+
+      // Búsqueda en tiempo real
+      let searchDebounce = null;
+      document.getElementById('searchQueryInput')?.addEventListener('input', (e) => {
+        clearTimeout(searchDebounce);
+        searchDebounce = setTimeout(() => performSearch(e.target.value), 200);
+      });
+
+      // Teclas de Atajo para accesibilidad
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          closeSearchModal();
+          closeIndexModal();
+        }
+        // Flecha Izquierda / Derecha si no estamos en un input o textarea
+        if (document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
+          if (e.key === 'ArrowLeft' && STATE.currentCapNum > 1) {
+            renderChapter(STATE.currentCapNum - 1);
+          } else if (e.key === 'ArrowRight' && STATE.currentCapNum < 108) {
+            renderChapter(STATE.currentCapNum + 1);
+          }
+        }
+      });
+    }
+
+    /* Utilidades de Sanitización */
+    function escapeHTML(str) {
+      if (!str) return '';
+      return str.replace(/[&<>'"]/g, tag => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
+      }[tag] || tag));
+    }
+    function escapeRegExp(str) {
+      return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+  </script>
+</body>
+</html>
