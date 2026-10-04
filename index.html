@@ -727,12 +727,34 @@
       }
     }
 
+    /* Garantizar que el contenido del lector, bonos y hero nunca queden transparentes */
+    .welcome-banner,
+    .bono-card,
+    .verses-container,
+    .study-container,
+    .reader-grid-parallel {
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+
+    @keyframes fadeInReader {
+      from {
+        opacity: 0;
+        transform: translateY(4px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     /* Formato de Versículos Bíblicos */
     .verses-container {
       font-family: var(--font-reading);
       font-size: var(--reading-size);
       line-height: var(--reading-line);
       color: var(--text-main);
+      animation: fadeInReader 0.25s ease-out;
     }
     .verse-paragraph {
       margin-bottom: 1.2rem;
@@ -757,6 +779,7 @@
       display: flex;
       flex-direction: column;
       gap: 1.8rem;
+      animation: fadeInReader 0.25s ease-out;
     }
 
     .study-box {
@@ -1897,7 +1920,7 @@
   <main class="main-wrap">
 
     <!-- HERO / BANNER DE BIENVENIDA -->
-    <section class="welcome-banner" data-fx="surgir">
+    <section class="welcome-banner">
       <img src="assets/hero_enoch.jpg" alt="Enoc caminando en el paraíso celestial" class="welcome-banner-img">
       <div class="welcome-banner-overlay">
         <div class="welcome-tag">Santuario Digital de Estudio</div>
@@ -2146,7 +2169,7 @@
       if (!container || !window.BONOS_DATA) return;
 
       container.innerHTML = window.BONOS_DATA.map(b => `
-        <div class="bono-card" data-fx="surgir">
+        <div class="bono-card">
           <div class="bono-thumb-wrap">
             <img src="${b.image}" alt="${b.title}" class="bono-thumb" loading="lazy">
           </div>
@@ -2494,19 +2517,19 @@
 
       if (STATE.currentView === 'verses') {
         container.innerHTML = `
-          <div class="verses-container" data-fx="surgir">
+          <div class="verses-container">
             ${formatVersesHTML(ch.verses_raw)}
           </div>
         `;
       } else if (STATE.currentView === 'study') {
         container.innerHTML = `
-          <div class="study-container" data-fx="surgir">
+          <div class="study-container">
             ${formatStudyHTML(ch)}
           </div>
         `;
       } else if (STATE.currentView === 'parallel') {
         container.innerHTML = `
-          <div class="reader-grid-parallel" data-fx="surgir">
+          <div class="reader-grid-parallel">
             <div>
               <h3 style="font-family:var(--font-display);color:var(--gold-light);margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border-subtle)">
                 📖 Texto de los Versículos
